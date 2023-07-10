@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+
+    <record id="aba_payment_provider_form" model="ir.ui.view">
+        <field name="name">ABAPay Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position='inside'>
+                <group attrs="{'invisible': [('code', '!=', 'abapay')]}">
+                    <field name="aba_merchant_id"
+                           string="Merchant ID"
+                           attrs="{'required': [('code', '=', 'abapay'), ('state', '!=', 'disabled')]}"/>
+                    <field name="aba_currency_id"
+                           string="Currency"
+                           attrs="{'required': [('code', '=', 'abapay'), ('state', '!=', 'disabled')]}"/>
+                    <field name="aba_api_key"
+                           string="API Key"
+                           attrs="{'required': [('code', '=', 'abapay'), ('state', '!=', 'disabled')]}"
+                           password="True"/>
+                </group>
+            </group>
+            <xpath expr="//field[@name='available_country_ids']" position="after">
+                <field name="sort_code_payment"/>
+                <field widget="image" options="{&quot;size&quot;: [0, 90]}" name="icon_payment_img"/>
+            </xpath>
+            <xpath expr="//field[@name='display_as']" position="after">
+                <field name="icon_payment_credit" widget="image" options="{&quot;size&quot;: [0, 90]}"/>
+            </xpath>
+            <xpath expr="//field[@name='pre_msg']" position="before">
+                <field name="payment_instruction"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="redirect_form">
+        <form t-att-action="api_url" method="post" id="aba_merchant_request" target="aba_webservice">
+            <input type="hidden" name="req_time" t-att-value="req_time"/>
+            <input type="hidden" name="merchant_id" t-att-value="merchant_id"/>
+            <input type="hidden" name="tran_id" t-att-value="tran_id"/>
+            <input type="hidden" name="amount" t-att-value="amount"/>
+            <input type="hidden" name="payment_option" t-att-value="payment_option"/>
+            <input type="hidden" name="return_url" t-att-value="return_url"/>
+            <input type="hidden" name="continue_success_url" t-att-value="continue_success_url"/>
+            <input type="hidden" name="view_type" t-att-value="view_type"/>
+            <input type="hidden" name="hash" t-att-value="hash"/>
+        </form>
+<!--        <script src="https://checkout.payway.com.kh/plugins/checkout2-0.js"/>-->
+    </template>
+</odoo>

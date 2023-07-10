@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="payment_provider_aba" model="payment.provider">
+        <field name="name">ABAPay</field>
+        <field name="display_as">Credit Card</field>
+        <field name="code">abapay</field>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+        <field name="image_128" type="base64" file="payment_adyen/static/description/icon.png"/>
+        <field name="payment_icon_ids"
+               eval="[(6, 0, [
+                   ref('payment.payment_icon_cc_visa'),
+                   ref('payment.payment_icon_cc_mastercard'),
+                   ref('payment.payment_icon_cc_unionpay'),
+               ])]"/>
+    </record>
+
+</odoo>
